@@ -1,0 +1,31 @@
+
+
+.notif {
+    color: rgb(41, 32, 32);
+    font-size: 25px;
+    padding: 10px;
+    border-style: double;
+    border-radius: 5px;
+    border-color: darkgrey;
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    
+}
+
+.blogItem {
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: double;
+    border-color: darkgrey;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}

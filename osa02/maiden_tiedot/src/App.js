@@ -81,12 +81,6 @@ const App = () => {
     } 
     
     else if (filtered.length === 1) {
-      axios
-      .get(`http://api.weatherstack.com/current?access_key=872c600675f1a8839139025c2fc9406b&query=${filtered[0].name}`)
-      .then( response => {
-        setWeatherInfo(response.data)
-      })
-      console.log(weatherInfo)
       return (
         <div>
           <DisplayInfo info={filtered} />

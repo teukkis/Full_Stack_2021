@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { List, Button } from 'semantic-ui-react';
 
 import AddEntryModal from '../AddEntryModal';
+import EntryDetail from '../components/EntryDetail';
 import { EntryFormValues } from '../types';
 import { useStateValue, addEntry } from "../state";
 import { Entry, Patient } from "../types";
@@ -12,7 +13,7 @@ import { apiBaseUrl } from "../constants";
 
 
 const PatientInformation = (): JSX.Element => {
-  const [{ diagnosis }, dispatch ] = useStateValue();  
+  const [{ diagnosis }, dispatch ] = useStateValue();// eslint-disable-line  
   const [patient, setPatient] = React.useState<Patient>();
   const { id } = useParams<{ id: string }>();
   
@@ -64,15 +65,7 @@ const PatientInformation = (): JSX.Element => {
         </List>
         <h5>Entries</h5>
         {
-          Object.values(patient.entries).map((m) => (
-            <div key={m.id}>
-              <p >{m.date} <i>{m.description}</i></p>
-              <ul>
-                {m.diagnosisCodes?.map(c => <li key={c}>{c} {Object.values(diagnosis).find(d => d.code === c)?.name}</li>)}
-                
-              </ul>
-            </div>
-          ))
+          patient.entries.map(( entry: Entry) => <EntryDetail key={entry.id} entry={entry}/>)
         }
       </div>
     );
